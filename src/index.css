@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,500;0,600;1,400;1,500&display=swap');
+
+:root, [data-theme="dark"], .dark {
+  /* Surfaces & Backgrounds */
+  --background: #080B10;
+  --bg: #080B10;
+  --secondary: #0C1118;
+  --panel-header: #0C1118;
+  --card: #101720;
+  --panel: #101720;
+  --panel-elevated: #151D27;
+  --editor: #0A0E14;
+  --editor-active: #151D27;
+
+  /* Borders & Dividers */
+  --border: #26313D;
+  --border-subtle: #1E2733;
+  --input: #26313D;
+
+  /* Typography */
+  --foreground: #E8EDF5;
+  --text: #E8EDF5;
+  --muted-foreground: #9AA8B8;
+  --text-secondary: #9AA8B8;
+  --text-muted: #718096;
+
+  /* Accents & Status */
+  --primary: #38BDF8;
+  --primary-accent: #60A5FA;
+  --secondary-accent: #818CF8;
+  --cyan-accent: #38BDF8;
+  --accent: #38BDF8;
+  --accent-blue: #38BDF8;
+  --accent-glow: rgba(56, 189, 248, 0.25);
+
+  --success: #34D399;
+  --success-bg: rgba(52, 211, 153, 0.12);
+  --destructive: #FB7185;
+  --error: #FB7185;
+  --error-bg: rgba(251, 113, 133, 0.12);
+
+  --navbar-bg: rgba(8, 11, 16, 0.88);
+  --muted: #151D27;
+}
+
+[data-theme="light"] {
+  --background: #080B10;
+  --bg: #080B10;
+  --secondary: #0C1118;
+  --panel-header: #0C1118;
+  --card: #101720;
+  --panel: #101720;
+  --panel-elevated: #151D27;
+  --editor: #0A0E14;
+  --editor-active: #151D27;
+
+  --border: #26313D;
+  --border-subtle: #1E2733;
+  --input: #26313D;
+
+  --foreground: #E8EDF5;
+  --text: #E8EDF5;
+  --muted-foreground: #9AA8B8;
+  --text-secondary: #9AA8B8;
+  --text-muted: #718096;
+
+  --primary: #38BDF8;
+  --primary-accent: #60A5FA;
+  --secondary-accent: #818CF8;
+  --cyan-accent: #38BDF8;
+  --accent: #38BDF8;
+  --accent-blue: #38BDF8;
+  --accent-glow: rgba(56, 189, 248, 0.25);
+
+  --success: #34D399;
+  --success-bg: rgba(52, 211, 153, 0.12);
+  --destructive: #FB7185;
+  --error: #FB7185;
+  --error-bg: rgba(251, 113, 133, 0.12);
+
+  --navbar-bg: rgba(8, 11, 16, 0.88);
+  --muted: #151D27;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root, .app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #26313D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374657;
+}
+
+.content-container {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
+  background-color: var(--bg);
+}
+
+.app-workspace-container {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 54px);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Buttons */
+.button {
+  background: var(--primary);
+  border: none;
+  color: #080B10;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.button:hover {
+  background: var(--primary-accent);
+  box-shadow: 0 2px 14px var(--accent-glow);
+}
+.button.secondary {
+  background: var(--panel-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.button.secondary:hover {
+  background: #1C2633;
+  border-color: #374657;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--panel-elevated);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.code-font {
+  font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+}
